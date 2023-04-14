@@ -1,9 +1,13 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
+import { LogBox, StyleSheet, Text, View } from "react-native";
+import React, { useEffect } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import StackNavigation from "./src/navigation/StackNavigation";
 
 const App = () => {
+  useEffect(() => {
+    LogBox.ignoreAllLogs();
+  }, []);
+
   return (
     <NavigationContainer>
       <StackNavigation />
