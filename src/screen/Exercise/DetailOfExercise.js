@@ -1,4 +1,4 @@
-import { Image, ImageBackground, Modal, Platform, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Alert, Image, ImageBackground, Modal, Platform, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React, { useEffect, useRef, useState } from "react";
 import { responsiveWidth as w, responsiveHeight as h } from "react-native-responsive-dimensions";
 import Icon from "react-native-vector-icons/Ionicons";
@@ -13,11 +13,13 @@ const DetailOfExercise = ({ navigation }) => {
   const [indexNumber, setIndex] = useState("");
   const timerRef = useRef(time);
   const [openModel, setOpenModel] = useState(false);
+  const [timeData, setTimeData] = useState("");
   useEffect(() => {
     const timerID = setInterval(() => {
       timerRef.current -= 1;
       if (timerRef.current < 0) {
         clearInterval(timerID);
+        setTimeData("hello");
       } else {
         setTime(timerRef.current);
       }
@@ -26,21 +28,9 @@ const DetailOfExercise = ({ navigation }) => {
       clearInterval(timerID);
     };
   }, []);
-  // const [timeArm, setTimeArm] = useState(30);
-  // const timerArmRef = useRef(timeArm);
-  // useEffect(() => {
-  //   const timerID = setInterval(() => {
-  //     timerArmRef.current -= 1;
-  //     if (timerArmRef.current < 0) {
-  //       clearInterval(timerID);
-  //     } else {
-  //       setTimeArm(timerArmRef.current);
-  //     }
-  //   }, 1000);
-  //   return () => {
-  //     clearInterval(timerID);
-  //   };
-  // }, [time == 0]);
+  const countdownRef = useRef(null);
+  const [resume, setResume] = useState("");
+
   const ButtonMap = [{ button: "RESTART THIS EXCHANGE" }, { button: "QUIT" }, { button: "RESUME" }];
   return (
     <View style={[CssStyle.mainContainer, { paddingTop: h(3) }]}>
@@ -67,7 +57,7 @@ const DetailOfExercise = ({ navigation }) => {
           </View>
         </ImageBackground>
 
-        {time !== 0 ? (
+        {!timeData ? (
           <View style={{ alignItems: "center", flex: 1 }}>
             <Text style={styles.readyText}>Ready to go!</Text>
 
@@ -75,23 +65,27 @@ const DetailOfExercise = ({ navigation }) => {
               <Text style={styles.armText}>Arm raises</Text>
               <AntDesign size={17} name="questioncircleo" color="#00000020" />
             </View>
-
-            <View style={[CssStyle.flexData, { flex: 1 }]}>
+            <View style={[CssStyle.flexData, { flex: 1, alignItems: "center" }]}>
               <ProgressCircle percent={time * 10} radius={50} borderWidth={7} color="blue" shadowColor="#e9e9ef" bgColor="#fff">
                 <Text style={{ fontSize: 30 }}>{time}</Text>
               </ProgressCircle>
 
-              <TouchableOpacity style={{ marginLeft: w(8) }} onPress={() => navigation.navigate("")}>
-                <Icon name="chevron-forward-outline" size={23} color="blue" />
+              <TouchableOpacity
+                style={{ paddingLeft: w(8) }}
+                onPress={() => {
+                   Alert.alert("why no data" + timeData);
+                }}
+              >
+                <Icon name="chevron-forward-outline" size={30} color="blue" />
               </TouchableOpacity>
             </View>
           </View>
         ) : (
-          <WatchTime openModel={openModel} setOpenModel={setOpenModel} />
+          <WatchTime countdownRef={countdownRef} resume={resume} openModel={openModel} setOpenModel={setOpenModel} />
         )}
       </View>
 
-      <Modal visible={openModel} transparent={true} animationType="slide">
+      <Modal onRequestClose={() => setOpenModel(false)} visible={openModel} transparent={true} animationType="slide">
         <View style={[CssStyle.mainContainer, { backgroundColor: "#6495EDf1" }]}>
           <View style={{ marginTop: Platform.OS == "ios" ? h(6) : h(3), flex: 1, paddingHorizontal: w(4) }}>
             <TouchableOpacity style={{ flex: 1.3 }} onPress={() => setOpenModel(false)}>
@@ -115,7 +109,14 @@ const DetailOfExercise = ({ navigation }) => {
               {ButtonMap.map((item, index) => (
                 <CustomButton
                   key={index}
-                  onPress={() => setIndex(index)}
+                  onPress={() => {
+                    setIndex(index),
+                      item.button == "RESUME"
+                        ? (countdownRef.current.resume(), setResume("Resume"), setOpenModel(false))
+                        : item.button == "RESTART THIS EXCHANGE"
+                        ? (setTimeData("newone"), setOpenModel(false), countdownRef.current.start())
+                        : (navigation.navigate("Rest"), setOpenModel(false));
+                  }}
                   style={{ marginVertical: h(1), alignItems: "flex-start" }}
                   borderRadius={6}
                   borderColor="white"
