@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="145" height="68.62" viewBox="0 0 145 68.62">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_202" data-name="Rectangle 202" width="8" height="15" transform="translate(-0.455 -0.364)" fill="#fff"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <rect id="Rectangle_205" data-name="Rectangle 205" width="8" height="15" transform="translate(0 -0.364)" fill="#fff"/>
+    </clipPath>
+  </defs>
+  <g id="Group_596" data-name="Group 596" transform="translate(-10315 -5660.871)">
+    <path id="Path_99" data-name="Path 99" d="M10363.592,5508.871h18.271v22.656s-.266,7.462,5.969,7.462h15.626s6.584.352,6.5-7.462c-.176-5.268,0-8.077,0-8.077h8.779V5533.9s-.179,13.433-15.276,13.7-16.24,0-16.24,0-14.309.351-14.309-13.7v-16.5h-11.939v-8.521Z" transform="translate(-8.204 181.782)" fill="#fff"/>
+    <path id="Path_100" data-name="Path 100" d="M10416.11,5547.708h-18.271v-22.656s.266-7.461-5.969-7.461h-15.626s-6.584-.352-6.5,7.461c.176,5.268,0,8.077,0,8.077h-8.778v-10.447s.178-13.432,15.275-13.7,16.24,0,16.24,0,14.31-.351,14.31,13.7v16.5h11.938v8.522Z" transform="translate(3.251 152)" fill="#fff"/>
+    <circle id="Ellipse_39" data-name="Ellipse 39" cx="4" cy="4" r="4" transform="translate(10384 5709)" fill="#fff"/>
+    <rect id="Rectangle_200" data-name="Rectangle 200" width="11" height="45" rx="2" transform="translate(10425 5672)" fill="#fff"/>
+    <rect id="Rectangle_201" data-name="Rectangle 201" width="9" height="31" rx="2" transform="translate(10440 5679)" fill="#fff"/>
+    <g id="Mask_Group_6" data-name="Mask Group 6" transform="translate(10452.455 5687.364)" clip-path="url(#clip-path)">
+      <ellipse id="Ellipse_40" data-name="Ellipse 40" cx="6.5" cy="7.5" rx="6.5" ry="7.5" transform="translate(-5.455 -0.364)" fill="#fff"/>
+    </g>
+    <rect id="Rectangle_203" data-name="Rectangle 203" width="12" height="45" rx="2" transform="translate(10339 5672)" fill="#fff"/>
+    <rect id="Rectangle_204" data-name="Rectangle 204" width="10" height="31" rx="2" transform="translate(10326 5679)" fill="#fff"/>
+    <g id="Mask_Group_7" data-name="Mask Group 7" transform="translate(10315 5687.364)" clip-path="url(#clip-path-2)">
+      <ellipse id="Ellipse_41" data-name="Ellipse 41" cx="7" cy="7.5" rx="7" ry="7.5" transform="translate(0 -0.364)" fill="#fff"/>
+    </g>
+  </g>
+</svg>
