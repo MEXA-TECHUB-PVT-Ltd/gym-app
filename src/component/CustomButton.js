@@ -2,6 +2,7 @@ import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { Button } from "react-native-paper";
 import Icon from "react-native-vector-icons/Ionicons";
+import { Colors, ColorsApp } from "../StyleSheet/Colors";
 
 const CustomButton = ({ onPress, iconColor, borderRadius, buttonText, style, iconName, mode, buttonColor, fontWeight, size, colorText, paddingVertical, styleText, borderColor, imageIcon }) => {
   return (
@@ -10,12 +11,11 @@ const CustomButton = ({ onPress, iconColor, borderRadius, buttonText, style, ico
       style={[
         style,
         {
-          borderRadius: borderRadius ? borderRadius : 30,
+          borderRadius: borderRadius ? borderRadius : 6,
           borderColor: borderColor ? borderColor : "#00000020",
-          backgroundColor: buttonColor ? buttonColor : '#0197F6',
+          backgroundColor: buttonColor ? buttonColor : ColorsApp.normal,
         },
       ]}
-      // buttonColor={buttonColor ? buttonColor : "#0197F6"}
       mode={mode ? mode : "contained"}
       labelStyle={[
         ,
@@ -23,7 +23,7 @@ const CustomButton = ({ onPress, iconColor, borderRadius, buttonText, style, ico
         {
           fontWeight: fontWeight,
           color: colorText ? colorText : "white",
-          paddingVertical: paddingVertical ? paddingVertical : 0,
+          paddingVertical: paddingVertical ? paddingVertical : 0
         },
       ]}
       onPress={onPress}

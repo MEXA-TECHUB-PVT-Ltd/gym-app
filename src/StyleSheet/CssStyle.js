@@ -22,4 +22,16 @@ export default CssStyle = StyleSheet.create({
     flex: 1,
     backgroundColor: "white",
   },
+  flexEnd: {
+    flex: 1,
+    justifyContent: "flex-end",
+    alignItems: "center",
+  },
+  shadow: {
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 10,
+    elevation: 4,
+  },
 });
